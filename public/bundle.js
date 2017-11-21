@@ -70,6 +70,7 @@
 console.log("HHHIIIIIII");
 
 const mapboxgl = __webpack_require__(1);
+const buildMarker = __webpack_require__(4);
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZW1nb3Jkb24xNTQiLCJhIjoiY2phOXVmNGk5MGt0eDMycXVweWEybmVrciJ9.Q310T3dOqbZ8ctXakShBWQ';
 
@@ -80,7 +81,7 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/streets-v10"
 });
 
-const fullstackNY = 
+const fullstackNY =
   document.createElement('div');
 
   fullstackNY.style.width = "32px";
@@ -101,10 +102,11 @@ const fullstackChicago =
   fullstackChicago.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
 
 
-  new mapboxgl.Marker(fullstackChicago)  
+  new mapboxgl.Marker(fullstackChicago)
   .setLngLat([-87.6354, 51.8885])
   .addTo(map);
 
+buildMarker('hotels', [-73.980537 ,40.763439]).addTo(map);
 
 
 /***/ }),
@@ -685,6 +687,37 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 3 */,
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const mapboxgl = __webpack_require__(1);
+
+const iconURLs = {
+  hotels: "http://i.imgur.com/D9574Cu.png",
+  restaurants: "http://i.imgur.com/cqR6pUI.png",
+  activities: "http://i.imgur.com/WbMOfMl.png"
+}
+
+const buildMarker = function(type, coords) {
+  const marker = document.createElement('div');
+  marker.style.width = '32px';
+  marker.style.height = '39px';
+  marker.style.backgroundImage = "url("+iconURLs[type]+")";
+
+  const setMarker = new mapboxgl.Marker(marker)
+    .setLngLat(coords)
+
+  return setMarker;
+}
+
+
+module.exports = buildMarker;
+
+
 
 
 /***/ })

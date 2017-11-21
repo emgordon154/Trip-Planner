@@ -1,6 +1,7 @@
 console.log("HHHIIIIIII");
 
 const mapboxgl = require('mapbox-gl');
+const buildMarker = require('./marker');
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZW1nb3Jkb24xNTQiLCJhIjoiY2phOXVmNGk5MGt0eDMycXVweWEybmVrciJ9.Q310T3dOqbZ8ctXakShBWQ';
 
@@ -11,7 +12,7 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/streets-v10"
 });
 
-const fullstackNY = 
+const fullstackNY =
   document.createElement('div');
 
   fullstackNY.style.width = "32px";
@@ -32,7 +33,8 @@ const fullstackChicago =
   fullstackChicago.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
 
 
-  new mapboxgl.Marker(fullstackChicago)  
+  new mapboxgl.Marker(fullstackChicago)
   .setLngLat([-87.6354, 51.8885])
   .addTo(map);
 
+buildMarker('hotels', [-73.980537 ,40.763439]).addTo(map);
