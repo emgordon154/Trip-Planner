@@ -12,29 +12,11 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/streets-v10"
 });
 
-const fullstackNY =
-  document.createElement('div');
-
-  fullstackNY.style.width = "32px";
-  fullstackNY.style.height = "39px";
-  fullstackNY.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
-
-const fsnyMarker = new mapboxgl.Marker(fullstackNY)
-  .setLngLat([-74.009151, 40.705086])
-    .addTo(map);
-
-console.log(fsnyMarker)
-
-const fullstackChicago =
-  document.createElement('div')
-
-  fullstackChicago.style.width = "32px";
-  fullstackChicago.style.height = "39px";
-  fullstackChicago.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
-
-
-  new mapboxgl.Marker(fullstackChicago)
-  .setLngLat([-87.6354, 51.8885])
-  .addTo(map);
-
 buildMarker('hotels', [-73.980537 ,40.763439]).addTo(map);
+buildMarker('activities', [-74.009151, 40.705086]).addTo(map);
+buildMarker('activities', [-87.6354, 51.8885]).addTo(map);
+
+// const header = document.getElementsByClassName('header')[0];
+// header.addEventListener('hover', (event) => {
+//   header.classList.add('hover')
+// })

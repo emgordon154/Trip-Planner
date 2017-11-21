@@ -2,14 +2,55 @@
   box-sizing: border-box;
 }
 
+header, nav {
+  height: 8vw;
+  transition: all 1s ease;
+  transform: translateY(-1rem)
+}
+
+header:hover, nav:hover {
+  transform: translateY(0)
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #C1B5AD;
 }
 
+nav {
+  display: flex;
+  align-items: space-between
+}
+
 #map {
   height: 100vh;
   width: 100vw;
   position: absolute;
+  z-index: -1
+}
+
+#overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between
+}
+
+#selectors {
+  width: 25vw;
+  background-color: rgb(177, 177, 128)
+}
+
+#itinerary {
+  width: 25vw;
+  background-color: rgb(104, 190, 104)
+}
+
+#itinerary-header {
+  background-color: orange
+}
+
+select {
+  width: 12vw
 }
